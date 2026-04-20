@@ -4,41 +4,36 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     preloader.style.opacity = '0';
     setTimeout(() => preloader.remove(), 500);
-  }, 1000);
-});
-
-// STICKY NAVBAR
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('navbar');
-  if (window.scrollY > 50) {
-    nav.style.background = 'white';
-    nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-  } else {
-    nav.style.background = 'white';
-  }
-});
-
-// SMOOTH SCROLL
-document.querySelectorAll('.nav-link, .btn-primary, .btn-outline, .call-btn, .banner-btn').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    if (this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-        document.getElementById('navLinks')?.classList.remove('active');
-      }
-    }
-  });
+  }, 800);
 });
 
 // HAMBURGER MENU
 const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
 if (hamburger) {
   hamburger.addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('active');
+    navLinks.classList.toggle('active');
   });
 }
+
+// CLOSE MENU WHEN CLICKING A LINK
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
 
 // PROJECTS DATA
 const projects = [
@@ -48,7 +43,7 @@ const projects = [
     price: "Call for Price", 
     installment: "Easy Installments Available",
     img: "https://images.pexels.com/photos/2587054/pexels-photo-2587054.jpeg?auto=compress&w=400",
-    desc: "Mixed-use building with commercial shops and luxury apartments. 1st & 2nd Floor Commercial, Upper Floors Residential. 3 Bed & 4 Bed English Style Duplex available."
+    desc: "Mixed-use building with commercial shops and luxury apartments. 1st & 2nd Floor Commercial, Upper Floors Residential."
   },
   { 
     name: "Hayat English Residency", 
@@ -56,13 +51,14 @@ const projects = [
     price: "Call for Price", 
     installment: "Flexible Payment Plan",
     img: "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&w=400",
-    desc: "Premium English style residential project with modern amenities. Spacious apartments with elegant finishing."
+    desc: "Premium English style residential project with modern amenities."
   }
 ];
 
 function renderProjects() {
   const grid = document.getElementById('projectsGrid');
   if (!grid) return;
+  
   grid.innerHTML = projects.map(project => `
     <div class="project-card" data-name="${project.name}" data-location="${project.location}" data-price="${project.price}" data-installment="${project.installment}" data-desc="${project.desc}" data-img="${project.img}">
       <div class="project-img" style="background-image: url('${project.img}');"></div>
@@ -79,57 +75,43 @@ function renderProjects() {
     card.addEventListener('click', () => {
       const modal = document.getElementById('projectModal');
       document.getElementById('modalBody').innerHTML = `
-        <h2 style="color:#c9a03d">${card.dataset.name}</h2>
-        <img src="${card.dataset.img}" style="width:100%; border-radius:12px; margin:15px 0;">
+        <h2 style="color:#eab308; margin-bottom:15px;">${card.dataset.name}</h2>
+        <img src="${card.dataset.img}" style="width:100%; border-radius:12px; margin-bottom:15px;">
         <p><strong>Location:</strong> ${card.dataset.location}</p>
         <p><strong>Price:</strong> ${card.dataset.price}</p>
         <p><strong>Installment:</strong> ${card.dataset.installment}</p>
         <p><strong>Description:</strong> ${card.dataset.desc}</p>
-        <a href="#contact" class="btn-primary" style="display:inline-block; margin-top:15px;">Contact for Details</a>
+        <a href="#contact" style="display:inline-block; margin-top:15px; background:#eab308; color:#1e293b; padding:10px 20px; border-radius:30px; text-decoration:none; font-weight:600;">Contact for Details</a>
       `;
       modal.style.display = 'flex';
     });
   });
 }
 
-// SIZE SELECTOR FOR APARTMENTS
+// SIZE SELECTOR
 function setupSizeSelector() {
-  // 3 Bed Size Selector
   const sizeBtns3Bed = document.querySelectorAll('#sizeSelector3Bed .size-btn');
   sizeBtns3Bed.forEach(btn => {
     btn.addEventListener('click', () => {
       sizeBtns3Bed.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const size = btn.dataset.size;
       const infoDiv = document.getElementById('info3Bed');
-      if (size === '1457') {
-        infoDiv.innerHTML = `<p><strong>Price:</strong> Call for Price</p><p><strong>Installment:</strong> Easy Plans Available</p>`;
-      } else if (size === '1800') {
-        infoDiv.innerHTML = `<p><strong>Price:</strong> Call for Price</p><p><strong>Installment:</strong> Flexible Installments</p>`;
-      } else {
-        infoDiv.innerHTML = `<p><strong>Price:</strong> Call for Price</p><p><strong>Installment:</strong> Premium Plan Available</p>`;
-      }
+      infoDiv.innerHTML = `<p><strong>Price:</strong> Call for Price</p><p><strong>Installment:</strong> Easy Plans Available</p>`;
     });
   });
   
-  // 4 Bed Size Selector
   const sizeBtns4Bed = document.querySelectorAll('#sizeSelector4Bed .size-btn');
   sizeBtns4Bed.forEach(btn => {
     btn.addEventListener('click', () => {
       sizeBtns4Bed.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const size = btn.dataset.size;
       const infoDiv = document.getElementById('info4Bed');
-      if (size === '1800') {
-        infoDiv.innerHTML = `<p><strong>Price:</strong> Call for Price</p><p><strong>Installment:</strong> Duplex Special Plan</p>`;
-      } else {
-        infoDiv.innerHTML = `<p><strong>Price:</strong> Call for Price</p><p><strong>Installment:</strong> Premium Duplex Plan</p>`;
-      }
+      infoDiv.innerHTML = `<p><strong>Price:</strong> Call for Price</p><p><strong>Installment:</strong> Flexible Plans</p>`;
     });
   });
 }
 
-// PROJECT GALLERY
+// GALLERY
 const galleryImages = [
   "https://images.pexels.com/photos/2587054/pexels-photo-2587054.jpeg?auto=compress&w=400",
   "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&w=400",
@@ -141,16 +123,16 @@ function renderGallery() {
   const galleryGrid = document.getElementById('projectGallery');
   if (!galleryGrid) return;
   galleryGrid.innerHTML = galleryImages.map(img => `
-    <div class="gallery-img-card" style="background-image: url('${img}');" onclick="window.open('${img}', '_blank')"></div>
+    <div class="gallery-img-card" style="background-image: url('${img}');"></div>
   `).join('');
 }
 
-// PROPERTY LISTINGS DATA
+// PROPERTIES
 const properties = [
   { name: "Residential Plot", category: "Plots", location: "Naseem Nagar", price: "PKR 35 Lakh", img: "https://images.pexels.com/photos/2587054/pexels-photo-2587054.jpeg?auto=compress&w=400" },
   { name: "2 Bed Apartment", category: "Apartments", location: "Hayat Tower", price: "PKR 85 Lakh", img: "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&w=400" },
-  { name: "Commercial Shop", category: "Commercial", location: "Hayat Tower 1st Floor", price: "PKR 1.2 Crore", img: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&w=400" },
-  { name: "3 Bed Apartment", category: "Apartments", location: "Hayat English Residency", price: "PKR 1.1 Crore", img: "https://images.pexels.com/photos/1648771/pexels-photo-1648771.jpeg?auto=compress&w=400" },
+  { name: "Commercial Shop", category: "Commercial", location: "Hayat Tower", price: "PKR 1.2 Crore", img: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&w=400" },
+  { name: "3 Bed Apartment", category: "Apartments", location: "Hayat Residency", price: "PKR 1.1 Crore", img: "https://images.pexels.com/photos/1648771/pexels-photo-1648771.jpeg?auto=compress&w=400" },
   { name: "Corner Plot", category: "Plots", location: "Qasimabad", price: "PKR 55 Lakh", img: "https://images.pexels.com/photos/2089698/pexels-photo-2089698.jpeg?auto=compress&w=400" }
 ];
 
@@ -171,7 +153,7 @@ function renderProperties(filter = "all") {
   `).join('');
 }
 
-// Filter buttons
+// FILTER BUTTONS
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -180,7 +162,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// CARS DATA
+// CARS
 const cars = [
   { name: "Toyota Corolla 2020", price: "PKR 45 Lakh", img: "https://images.pexels.com/photos/2127733/pexels-photo-2127733.jpeg?auto=compress&w=400" },
   { name: "Honda Civic 2019", price: "PKR 52 Lakh", img: "https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&w=400" },
@@ -202,7 +184,7 @@ function renderCars() {
   `).join('');
 }
 
-// INVESTMENT CALCULATOR
+// CALCULATOR
 const calculateBtn = document.getElementById('calculateBtn');
 if (calculateBtn) {
   calculateBtn.addEventListener('click', () => {
@@ -214,7 +196,6 @@ if (calculateBtn) {
     document.getElementById('returnAmount').innerText = returnAmount.toLocaleString();
     document.getElementById('totalValue').innerText = totalValue.toLocaleString();
   });
-  // Trigger initial calculation
   calculateBtn.click();
 }
 
@@ -230,12 +211,14 @@ function updateTestiSlider() {
     testimonialsContainer.style.transform = `translateX(-${currentTesti * 100}%)`;
   }
 }
+
 if (nextTesti) {
   nextTesti.addEventListener('click', () => {
     currentTesti = (currentTesti + 1) % testimonialCards.length;
     updateTestiSlider();
   });
 }
+
 if (prevTesti) {
   prevTesti.addEventListener('click', () => {
     currentTesti = (currentTesti - 1 + testimonialCards.length) % testimonialCards.length;
@@ -243,7 +226,7 @@ if (prevTesti) {
   });
 }
 
-// CONTACT FORM TO WHATSAPP
+// CONTACT FORM
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
@@ -261,23 +244,14 @@ if (contactForm) {
 document.querySelector('.close-modal')?.addEventListener('click', () => {
   document.getElementById('projectModal').style.display = 'none';
 });
+
 window.onclick = (e) => {
   if (e.target === document.getElementById('projectModal')) {
     document.getElementById('projectModal').style.display = 'none';
   }
 };
 
-// SCROLL ANIMATIONS
-const faders = document.querySelectorAll('.fade-up, .fade-right, .fade-left');
-const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-const appearOnScroll = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('appear');
-  });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
-
-// Initialize all renders
+// INITIALIZE
 renderProjects();
 renderGallery();
 renderProperties();
