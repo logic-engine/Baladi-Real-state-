@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Baladi Real Estate & Marketing | Property & Car Deals Hyderabad</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-content">
+    <div class="preloader-spinner"></div>
+    <h3>Baladi Real Estate</h3>
+    <p>Your Trusted Partner in Property & Investment</p>
+  </div>
+</div>
+
+<!-- STICKY NAVBAR -->
+<nav id="navbar" class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <i class="fas fa-building"></i>
+      <span>Baladi Real Estate</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#properties" class="nav-link">Properties</a></li>
+      <li><a href="#cars" class="nav-link">Cars</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tel:+923153661893" class="call-btn"><i class="fas fa-phone-alt"></i> Call Now</a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- GET BEST DEAL TODAY BANNER -->
+<div class="top-banner">
+  <div class="banner-content">
+    <i class="fas fa-tag"></i>
+    <span>🏆 Best Deals Today! Cash & Installment Options Available</span>
+    <a href="#contact" class="banner-btn">Book Site Visit →</a>
+  </div>
+</div>
+
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title fade-up">Your Trusted Partner in <span class="gold">Property & Investment</span></h1>
+    <p class="hero-subtitle fade-up delay-1">Buying & Selling Properties | Real Estate Projects | Car Sale & Purchase</p>
+    <div class="hero-btns fade-up delay-2">
+      <a href="#projects" class="btn-primary"><i class="fas fa-building"></i> View Projects</a>
+      <a href="#contact" class="btn-outline"><i class="fas fa-headset"></i> Contact Now</a>
+    </div>
+    <div class="hero-features fade-up delay-3">
+      <span><i class="fas fa-hand-holding-usd"></i> Cash & Installments</span>
+      <span><i class="fas fa-check-circle"></i> Verified Deals</span>
+      <span><i class="fas fa-chart-line"></i> Best Investment</span>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- FEATURED PROJECTS SECTION -->
+<section id="projects" class="projects section-padding">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>🏗️ Featured <span class="gold">Projects</span></h2>
+      <p>Premium real estate investments in Hyderabad</p>
+    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+</section>
+
+<!-- HAYAT TOWER DETAILS SECTION (Interactive) -->
+<section id="hayat-details" class="project-details section-padding">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>🏢 Hayat Tower <span class="gold">Details</span></h2>
+      <p>Mixed-use building | Commercial Shops | Luxury Apartments</p>
+    </div>
+    
+    <!-- Layout Breakdown Cards -->
+    <div class="layout-grid fade-up">
+      <div class="layout-card">
+        <i class="fas fa-store"></i>
+        <h3>Commercial Shops</h3>
+        <p>Available on 1st & 2nd Floor</p>
+        <span class="badge">Prime Location</span>
+      </div>
+      <div class="layout-card">
+        <i class="fas fa-building"></i>
+        <h3>Residential Apartments</h3>
+        <p>3 Bed & 4 Bed English Style Duplex</p>
+        <span class="badge">Luxury Living</span>
+      </div>
+    </div>
+
+    <!-- Apartment Details with Size Selector -->
+    <div class="apartment-section fade-up">
+      <h3><i class="fas fa-bed"></i> Apartment Types</h3>
+      <div class="apartment-cards">
+        <div class="apartment-card" data-type="3bed">
+          <h4>3 Bed Apartment</h4>
+          <p>Spacious family apartment</p>
+          <div class="size-selector" id="sizeSelector3Bed">
+            <button class="size-btn active" data-size="1457">1457 sq ft</button>
+            <button class="size-btn" data-size="1800">1800 sq ft</button>
+            <button class="size-btn" data-size="1850">1850 sq ft</button>
+          </div>
+          <div class="apartment-info" id="info3Bed">
+            <p><strong>Price:</strong> Call for Price</p>
+            <p><strong>Installment:</strong> Easy Plans Available</p>
+          </div>
+        </div>
+        <div class="apartment-card" data-type="4bed">
+          <h4>4 Bed Duplex (English Style)</h4>
+          <p>Double floor inside | Premium finishing</p>
+          <div class="size-selector" id="sizeSelector4Bed">
+            <button class="size-btn active" data-size="1800">1800 sq ft</button>
+            <button class="size-btn" data-size="1850">1850 sq ft</button>
+          </div>
+          <div class="apartment-info" id="info4Bed">
+            <p><strong>Price:</strong> Call for Price</p>
+            <p><strong>Installment:</strong> Flexible Plans</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="gallery-section fade-up">
+      <h3><i class="fas fa-images"></i> Project Gallery</h3>
+      <div class="gallery-grid" id="projectGallery"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTY LISTINGS (Filterable) -->
+<section id="properties" class="properties section-padding">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>🏘️ Property <span class="gold">Listings</span></h2>
+      <p>Plots | Apartments | Commercial - Best deals in Hyderabad</p>
+    </div>
+    <div class="filter-buttons fade-up delay-1">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Plots">Plots</button>
+      <button class="filter-btn" data-filter="Apartments">Apartments</button>
+      <button class="filter-btn" data-filter="Commercial">Commercial</button>
+    </div>
+    <div class="properties-grid" id="propertiesGrid"></div>
+  </div>
+</section>
+
+<!-- CAR SALE & PURCHASE SECTION -->
+<section id="cars" class="cars-section section-padding">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>🚗 Car Sale & <span class="gold">Purchase</span></h2>
+      <p>Quality used cars | Best market prices</p>
+    </div>
+    <div class="cars-grid" id="carsGrid"></div>
+    <div class="car-note fade-up">
+      <i class="fas fa-info-circle"></i> Call us for complete car listings and best buy/sell deals!
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT CALCULATOR -->
+<section class="calculator-section section-padding">
+  <div class="container">
+    <div class="calculator-wrapper fade-up">
+      <div class="calculator-info">
+        <h3><i class="fas fa-chart-line"></i> Investment <span class="gold">Calculator</span></h3>
+        <p>Calculate estimated returns on property investment</p>
+      </div>
+      <div class="calculator-box">
+        <div class="input-group">
+          <label>Investment Amount (PKR)</label>
+          <input type="number" id="investmentAmount" placeholder="Enter amount" value="5000000">
+        </div>
+        <div class="input-group">
+          <label>Expected ROI (%)</label>
+          <input type="number" id="roiPercent" placeholder="ROI percentage" value="15">
+        </div>
+        <button id="calculateBtn" class="calc-btn">Calculate Returns</button>
+        <div class="result-box" id="resultBox">
+          <p><strong>Estimated Return:</strong> <span id="returnAmount">0</span> PKR</p>
+          <p><strong>Total Value:</strong> <span id="totalValue">0</span> PKR</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-choose section-padding">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>✨ Why Choose <span class="gold">Baladi Real Estate</span></h2>
+      <p>Your trusted partner for over a decade</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-up"><i class="fas fa-shield-alt"></i><h4>Trusted Platform</h4><p>100% verified properties</p></div>
+      <div class="why-card fade-up delay-1"><i class="fas fa-check-double"></i><h4>Verified Deals</h4><p>Legal & transparent process</p></div>
+      <div class="why-card fade-up delay-2"><i class="fas fa-calendar-alt"></i><h4>Easy Installments</h4><p>Flexible payment plans</p></div>
+      <div class="why-card fade-up delay-3"><i class="fas fa-chart-simple"></i><h4>Local Market Expertise</h4><p>Deep Hyderabad market knowledge</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT TESTIMONIALS -->
+<section class="testimonials-section section-padding">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>💬 What <span class="gold">Our Clients Say</span></h2>
+      <p>Real reviews from property investors</p>
+    </div>
+    <div class="testimonials-slider">
+      <div class="testimonials-container" id="testimonialsContainer">
+        <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"Baladi Real Estate helped me find the perfect apartment. Professional and trustworthy!"</p><h4>- Ahmed Raza</h4><div class="stars">★★★★★</div></div>
+        <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"Best property dealers in Hyderabad. Got great returns on my investment."</p><h4>- Sana Khan</h4><div class="stars">★★★★★</div></div>
+        <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"Excellent service for car purchase as well. Highly recommended!"</p><h4>- Usman Ali</h4><div class="stars">★★★★★</div></div>
+        <div class="testimonial-card"><i class="fas fa-quote-right"></i><p>"Transparent dealings and easy installments. Will use again."</p><h4>- Fatima Hassan</h4><div class="stars">★★★★★</div></div>
+      </div>
+      <button class="testi-btn prev" id="prevTesti"><i class="fas fa-chevron-left"></i></button>
+      <button class="testi-btn next" id="nextTesti"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / LEAD FORM + WHATSAPP -->
+<section id="contact" class="contact-section section-padding">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="contact-info fade-right">
+        <h3>📞 Get in <span class="gold">Touch</span></h3>
+        <p>Call us or send a message for property inquiries</p>
+        <div class="address"><i class="fas fa-map-marker-alt"></i><p>Main Naseem Nagar Road, Opposite ABL Bank Naseem Nagar Branch, Hyderabad, Sindh, Pakistan</p></div>
+        <div class="contact-detail"><i class="fas fa-phone-alt"></i><p>0315 3661893</p></div>
+        <div class="contact-detail"><i class="fas fa-envelope"></i><p>baladirealestatemarketing@gmail.com</p></div>
+        <div class="social-links">
+          <a href="https://wa.me/923153661893" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="tel:+923153661893"><i class="fas fa-phone"></i></a>
+          <a href="https://www.facebook.com/BaladiRealEstateandMarketing" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="contact-form fade-left">
+        <h4>Send Inquiry</h4>
+        <form id="contactForm">
+          <input type="text" id="contactName" placeholder="Full Name" required>
+          <input type="tel" id="contactPhone" placeholder="Phone Number" required>
+          <select id="interestType" required>
+            <option value="">Interested In</option>
+            <option>Property</option>
+            <option>Car</option>
+            <option>Both</option>
+          </select>
+          <textarea id="contactMessage" rows="3" placeholder="Your message / requirements..." required></textarea>
+          <button type="submit" class="whatsapp-send"><i class="fab fa-whatsapp"></i> Send on WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP SECTION -->
+<section class="map-section section-padding">
+  <div class="container">
+    <div class="map-wrapper fade-up">
+      <h3><i class="fas fa-map-pin"></i> Our Location</h3>
+      <iframe src="https://maps.google.com/maps?q=Naseem+Nagar+Road+Hyderabad+Sindh+Pakistan&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="350" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3><i class="fas fa-building"></i> Baladi Real Estate & Marketing</h3><p>Your Trusted Partner in Property & Investment since 2010</p></div>
+      <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#projects">Projects</a></li><li><a href="#properties">Properties</a></li><li><a href="#cars">Cars</a></li></ul></div>
+      <div class="footer-hours"><h4>Working Hours</h4><p>Mon-Sat: 9:00 AM - 7:00 PM<br>Sunday: By Appointment</p></div>
+    </div>
+    <div class="copyright">© 2025 Baladi Real Estate & Marketing — Cash & Installments Available. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- FLOATING ACTION BUTTONS -->
+<div class="floating-actions">
+  <a href="https://wa.me/923153661893" class="float-btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+  <a href="tel:+923153661893" class="float-btn call"><i class="fas fa-phone-alt"></i><span>Call</span></a>
+</div>
+
+<!-- MODAL FOR PROJECT DETAILS -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+  </html>
